@@ -1,14 +1,16 @@
 import React from "react";
 import styles from "../../styles/CustomRadio.module.sass"
+import InfoIcon from "./InfoIcon";
 
 const CustomRadioIncome: React.FC = () => {
 
     return (
         <form className={styles.customRadio}>
             <legend className={styles.title}>Rendimento</legend>
-            <div></div>
+            <InfoIcon> <b>Bruto:</b> Valor total do rendimento sem descontos <br /><br />
+                      <b>Liquido:</b> Valor final após os descontos</InfoIcon>
             <label>
-                <input type="radio" id="Bruto" name="rendimento" value="bruto" />
+                <input type="radio" id="Bruto" name="rendimento" value="bruto" checked />
                 <span className={styles.bruto}>Bruto</span>
             </label>
             <label>
