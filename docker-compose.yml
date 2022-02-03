@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  frontend-challenge:
+    container_name: frontend-challenge
+    image: node:lts
+    working_dir: "/app"
+    volumes:
+      - ./:/app
+    ports:
+      - 3000:3000
+    command: bash -c "sh .docker/node/entrypoint.sh"
