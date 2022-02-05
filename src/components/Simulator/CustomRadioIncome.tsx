@@ -1,22 +1,29 @@
 import React from "react";
 import styles from "../../styles/CustomRadio.module.sass"
 import InfoIcon from "./InfoIcon";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ValuesContext } from "../ValuesContext";
 
 const CustomRadioIncome: React.FC = () => {
 
-    const [income, setIncome] = useState("");
+    const [income, setIncome] = useState("bruto");
+    const { setState, state } = useContext(ValuesContext);
+
+    function handleChangeContext() {
+        setState({
+            ...state,
+            income: income,
+        })
+    }
 
     const handleChangeGrossIncome = () => {
         setIncome("bruto")
+        handleChangeContext()
     }
 
     const handleChangeNetIncome = () => {
         setIncome("liquido")
-    }
-
-    if(income === "") {
-        handleChangeGrossIncome()
+        handleChangeContext()
     }
 
     return (

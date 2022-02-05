@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "../../styles/CustomRadio.module.sass"
 import InfoIcon from "./InfoIcon";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ValuesContext } from "../ValuesContext";
 
 const CustomRadioIndexing: React.FC = () => {
 
-    const [Indexing, setIndexing] = useState("");
+    const [Indexing, setIndexing] = useState("pre");
 
     const handleChangePreFixed = () => {
         setIndexing("pre")
@@ -19,9 +20,7 @@ const CustomRadioIndexing: React.FC = () => {
         setIndexing("ipca")
     }
 
-    if(Indexing === "") {
-        handleChangePreFixed()
-    }
+    console.log(useContext(ValuesContext))
 
     return (
         <form className={[styles.customRadio, styles.indexing].join(" ")}>

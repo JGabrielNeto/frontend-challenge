@@ -1,10 +1,9 @@
 import React from "react";
 import styles from "../../styles/CustomTextInput.module.sass";
 import * as yup from 'yup'
-import { VALID_LOADERS } from "next/dist/server/image-config";
 
 const CustomTextInput: React.FC = (props) => {
-
+  
   const inputSchema = yup.object().shape({
     initialContribution: yup.number(),
     monthlyContribution: yup.number(),
@@ -26,15 +25,18 @@ const CustomTextInput: React.FC = (props) => {
     };
     
     const dataValidation = await inputSchema.isValid(formData)
-    console.log(dataValidation)
-  }
+    }
 
   return (
   <>
   <form className={styles.form} id="form" onSubmit={validateForm}>
     <div className={styles.container}>
       <label className={styles.inp}>
-        <input id="inicial" type="text" placeholder="" pattern="^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"/>
+        <input 
+          id="inicial" 
+          type="text" 
+          placeholder=""
+          pattern="^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$" />
         <span className={styles.label}>Aporte Inicial</span>
         <span className={styles.focusBg}/>
         <span className={styles.warning}>Aporte deve ser um número.</span>
@@ -43,7 +45,11 @@ const CustomTextInput: React.FC = (props) => {
 
     <div className={styles.container}>
       <label className={styles.inp}>
-        <input id="mensal" type="text" placeholder="" pattern="^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"/>
+        <input 
+          id="mensal" 
+          type="text"
+          placeholder="" 
+          pattern="^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"/>
         <span className={styles.label}>Aporte Mensal</span>
         <span className={styles.focusBg}/>
         <span className={styles.warning}>Aporte deve ser um número.</span>
@@ -52,16 +58,24 @@ const CustomTextInput: React.FC = (props) => {
 
     <div className={styles.container}>
       <label className={styles.inp}>
-        <input id="prazo" type="text" placeholder="" pattern="^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"/>
+        <input 
+          id="prazo" 
+          type="text" 
+          placeholder="" 
+          pattern="^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"/>
         <span className={styles.label}>Prazo (em meses)</span>
         <span className={styles.focusBg}/>
-        <span className={styles.warning}>Insira um <u>número</u> de meses válido</span>
+        <span className={styles.warning}>Insira um <u>número</u> válido de meses</span>
       </label>
     </div>
 
     <div className={styles.container}>
       <label className={styles.inp}>
-        <input id="rentabilidade" type="text" placeholder="" pattern="^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"/>
+        <input 
+          id="rentabilidade" 
+          type="text" 
+          placeholder="" 
+          pattern="^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$"/>
         <span className={styles.label}>Rentabilidade</span>
         <span className={styles.focusBg}/>
         <span className={styles.warning}>Rentabilidade deve ser um número</span>
@@ -70,7 +84,12 @@ const CustomTextInput: React.FC = (props) => {
 
     <div className={styles.container}>
       <label className={styles.inp}>
-        <input required readOnly type="text" placeholder="" value="10.06%"/>
+        <input 
+          required 
+          readOnly 
+          type="text" 
+          placeholder="" 
+          value="10.06%"/>
         <span className={styles.label}>IPCA (ao ano)</span>
         <span className={styles.focusBg}/>
         </label>
@@ -78,7 +97,12 @@ const CustomTextInput: React.FC = (props) => {
 
     <div className={styles.container}>
       <label className={styles.inp}>
-        <input required readOnly type="text" placeholder="" value="9.15%"/>
+        <input 
+          required 
+          readOnly 
+          type="text" 
+          placeholder="" 
+          value="9.15%"/>
         <span className={styles.label}>CDI (ao ano)</span>
         <span className={styles.focusBg}/>
       </label>
