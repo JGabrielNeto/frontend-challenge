@@ -6,21 +6,16 @@ import { ValuesContext } from "../ValuesContext";
 
 const CustomRadioIndexing: React.FC = () => {
 
-    const [Indexing, setIndexing] = useState("pre");
+    const [indexing, setIndexing] = useState("pre");
+    const { setState, state } = useContext(ValuesContext);
 
-    const handleChangePreFixed = () => {
-        setIndexing("pre")
+    const handleChange = (e: any) => {
+        setIndexing(e.target.value);
+        setState({
+            ...state,
+            indexing: e.target.value,
+        })
     }
-
-    const handleChangePostFixed = () => {
-        setIndexing("pos")
-    }
-
-    const handleChangeIPCA = () => {
-        setIndexing("ipca")
-    }
-
-    console.log(useContext(ValuesContext))
 
     return (
         <form className={[styles.customRadio, styles.indexing].join(" ")}>
@@ -31,25 +26,25 @@ const CustomRadioIndexing: React.FC = () => {
             <label>
                 <input type="radio" 
                        name="indexador" 
-                       value="gross" 
-                       checked={Indexing === "pre"}
-                       onChange={() => {handleChangePreFixed();}}  />
+                       value="pre" 
+                       checked={indexing === "pre"}
+                       onChange={(e) => handleChange(e)}  />
                 <span className={styles.first}>PRÉ</span>
             </label>
             <label>
                 <input type="radio" 
                        name="indexador" 
-                       value="net"
-                       checked={Indexing === "pos"} 
-                       onChange={() => handleChangePostFixed()} />
+                       value="pos"
+                       checked={indexing === "pos"} 
+                       onChange={(e) => handleChange(e)} />
                 <span>PÓS</span>
             </label>
             <label>
                 <input type="radio" 
                        name="indexador" 
-                       value="net"
-                       checked={Indexing === "ipca"} 
-                       onChange={() => handleChangeIPCA()} />
+                       value="ipca"
+                       checked={indexing === "ipca"} 
+                       onChange={(e) => handleChange(e)} />
                 <span className={styles.last}>FIXADO</span>
             </label>
            

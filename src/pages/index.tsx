@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import styles from '../styles/Home.module.sass'
 import Simulator from '../components/Simulator/Simulator'
+import Results from '../components/Results/Results'
 
 const Home: NextPage = () => {
   return (
@@ -11,8 +12,8 @@ const Home: NextPage = () => {
           </h1>
         </header>
         <main className={styles.flex}>
-          <Simulator/>
-          <h2>Resultado da Simulação</h2>
+          <Simulator />
+          <Results />
         </main>
       </div>
   )

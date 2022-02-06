@@ -1,16 +1,45 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styles from "../../styles/CustomTextInput.module.sass";
 import * as yup from 'yup'
+import axios from "axios";
 
 const CustomTextInput: React.FC = (props) => {
-  
+
+  const [CDI, setCDI] = useState("")
+  const [IPCA, setIPCA] = useState("")
+
+  const getCDI = async () => {
+    await axios('http://localhost:3000/indicadores', {
+      'method': 'GET',
+    }).then((res) => {
+      setCDI(res.data[0].valor)
+    }).catch((e) => {
+      console.log(e)
+    })
+  }
+
+  const getIPCA = async () => {
+    await axios('http://localhost:3000/indicadores', {
+      'method': 'GET',
+    }).then((res) => {
+      setIPCA(res.data[1].valor)
+    }).catch((e) => {
+      console.log(e)
+    })
+  }
+
+  if(CDI == "" && IPCA == "") {
+    getIPCA();
+    getCDI();
+  }
+
   const inputSchema = yup.object().shape({
     initialContribution: yup.number(),
     monthlyContribution: yup.number(),
     deadline: yup.number(),
     profitability: yup.number(),
-    ipca: yup.number().equals([10.06]),
-    cdi: yup.number().equals([9.15]),
+    ipca: yup.number(),
+    cdi: yup.number()
   })
 
   const validateForm = async (event: any) => {
@@ -89,7 +118,7 @@ const CustomTextInput: React.FC = (props) => {
           readOnly 
           type="text" 
           placeholder="" 
-          value="10.06%"/>
+          value={`${IPCA}%`}/>
         <span className={styles.label}>IPCA (ao ano)</span>
         <span className={styles.focusBg}/>
         </label>
@@ -102,7 +131,7 @@ const CustomTextInput: React.FC = (props) => {
           readOnly 
           type="text" 
           placeholder="" 
-          value="9.15%"/>
+          value={`${CDI}%`}/>
         <span className={styles.label}>CDI (ao ano)</span>
         <span className={styles.focusBg}/>
       </label>

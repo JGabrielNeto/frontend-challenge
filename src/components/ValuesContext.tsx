@@ -1,26 +1,17 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext } from "react";
 
 type valuesContextTypes = {
     state: {
         income: string,
         indexing: string,
-        ipca: number,
-        cdi: number
     },
     setState: any
 }
 
-type propsValueContext = {
-    state: valuesContextTypes;
-    setState: React.Dispatch<React.SetStateAction<valuesContextTypes>>
-}
-
 const DEFAULT_VALUES = {
     state: {
-        income: "income",
-        indexing: "indexing",
-        ipca: 10.10,
-        cdi: 9.10
+        income: "bruto",
+        indexing: "pre",
     },
     setState: () => {},
 }

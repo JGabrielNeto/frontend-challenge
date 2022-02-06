@@ -6,24 +6,15 @@ import { ValuesContext } from "../ValuesContext";
 
 const CustomRadioIncome: React.FC = () => {
 
-    const [income, setIncome] = useState("bruto");
+    const [income, setIncome] = useState<string>("bruto");
     const { setState, state } = useContext(ValuesContext);
 
-    function handleChangeContext() {
+    const handleChange = (e: any) => {
+        setIncome(e.target.value);
         setState({
             ...state,
-            income: income,
+            income: e.target.value,
         })
-    }
-
-    const handleChangeGrossIncome = () => {
-        setIncome("bruto")
-        handleChangeContext()
-    }
-
-    const handleChangeNetIncome = () => {
-        setIncome("liquido")
-        handleChangeContext()
     }
 
     return (
@@ -34,17 +25,17 @@ const CustomRadioIncome: React.FC = () => {
             <label>
                 <input type="radio" 
                        name="rendimento" 
-                       value="gross" 
+                       value="bruto" 
                        checked={income === "bruto"}
-                       onChange={() => {handleChangeGrossIncome();}}  />
+                       onChange={(e) => handleChange(e)}  />
                 <span className={styles.first}>Bruto</span>
             </label>
             <label>
                 <input type="radio" 
                        name="rendimento" 
-                       value="net"
+                       value="liquido"
                        checked={income === "liquido"} 
-                       onChange={() => handleChangeNetIncome()} />
+                       onChange={(e) => handleChange(e)} />
                 <span className={styles.last}>Líquido</span>
             </label>
         </form>
