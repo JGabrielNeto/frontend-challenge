@@ -30,7 +30,10 @@ const Graph = (props: any) => {
             }
         },
         xAxis: {
-            categories: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+            categories: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+            title: {
+                text: "Tempo (em meses)"
+            }
         },
         yAxis: {
             min: 0,
