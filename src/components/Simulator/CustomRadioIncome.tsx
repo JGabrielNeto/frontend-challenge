@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles/CustomRadio.module.sass"
 import InfoIcon from "./InfoIcon";
 import { useState, useContext } from "react";
-import { ValuesContext } from "../ValuesContext";
+import { ValuesContext } from "../../hooks/ValuesContext";
 
 const CustomRadioIncome: React.FC = () => {
 
@@ -14,8 +14,11 @@ const CustomRadioIncome: React.FC = () => {
         setState({
             ...state,
             income: e.target.value,
+            madeNewRequest: false
         })
     }
+
+
 
     return (
         <form className={styles.customRadio}>

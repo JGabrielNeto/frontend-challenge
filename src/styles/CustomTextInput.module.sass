@@ -16,21 +16,32 @@ $dark: #000
     margin-top: 2rem
     transition: .25s ease
     font-size: 1rem
+    cursor: pointer
     
 
 .submitBtn
     background-color:#f58b47
     transition: .25s ease
+    border: none
             
     &:hover
         background-color: #ff7323
+        cursor: pointer
+
+.notValid
+    background-color:#959595
+    transition: .25s ease
+
+    &:hover
+      background-color: #959595
+      cursor: default
 
 .container
-    max-width: 45%
+    max-width: clamp(250px, 40%, 800px)
     display: flex
     place-items: center
     max-height: 10%
-    margin-top: 1rem
+    margin-top: .7rem
 
 .inp
   position: relative

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles/Simulator.module.sass";
 import CustomRadioIncome from "./CustomRadioIncome";
 import CustomRadioIndexing from "./CustomRadioIndexing";
-import CustomTextInput from "./CustomTextInput";
+import CustomForm from "./CustomForm";
 
 const Simulator: React.FC = () => {
   
@@ -11,7 +11,7 @@ const Simulator: React.FC = () => {
         <h2>Simulador</h2>
         <CustomRadioIncome/>
         <CustomRadioIndexing/>
-        <CustomTextInput/>
+        <CustomForm/>
     </div>
       
   )

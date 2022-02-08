@@ -4,6 +4,9 @@ type valuesContextTypes = {
     state: {
         income: string,
         indexing: string,
+        results: any,
+        request: boolean,
+        madeNewRequest: boolean
     },
     setState: any
 }
@@ -12,6 +15,9 @@ const DEFAULT_VALUES = {
     state: {
         income: "bruto",
         indexing: "pre",
+        results: {},
+        request: false,
+        madeNewRequest: true
     },
     setState: () => {},
 }

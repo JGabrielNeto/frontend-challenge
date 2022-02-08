@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles/CustomRadio.module.sass"
 import InfoIcon from "./InfoIcon";
 import { useState, useContext } from "react";
-import { ValuesContext } from "../ValuesContext";
+import { ValuesContext } from "../../hooks/ValuesContext";
 
 const CustomRadioIndexing: React.FC = () => {
 
@@ -14,6 +14,7 @@ const CustomRadioIndexing: React.FC = () => {
         setState({
             ...state,
             indexing: e.target.value,
+            madeNewRequest: false
         })
     }
 

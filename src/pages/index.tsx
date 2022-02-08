@@ -4,6 +4,8 @@ import Simulator from '../components/Simulator/Simulator'
 import Results from '../components/Results/Results'
 
 const Home: NextPage = () => {
+
+
   return (
       <div className={styles.container}>
         <header className={styles.header}>
