@@ -37,6 +37,7 @@ const Graph = (props: any) => {
         },
         yAxis: {
             min: 0,
+            ceiling: 2400,
             title: {
                 text: 'Valor (R$)'
             }
@@ -61,7 +62,7 @@ const Graph = (props: any) => {
                 stacking: 'normal',
                 dataLabels: {
                     enabled: true,
-                    format: "{point.y:.2f}"
+                    format: "{point.y:.2f}",
                 }
             }
         },
