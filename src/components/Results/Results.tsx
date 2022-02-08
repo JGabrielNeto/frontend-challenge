@@ -28,6 +28,7 @@ const Results: React.FC = () => {
             ...state,
             madeNewRequest: false
         })
+        setCheckData(state.request)
     }, [state.request, state.madeNewRequest])
     
     if(!checkData) {
