@@ -52,8 +52,8 @@ const CustomForm: React.FC = (props) => {
       } else {
         setIsValid(false)
       }
-  }, [state.madeNewRequest, formData])
-  
+  }, [formData])
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value.replace(/\D/g, "")
                               .replace(/(\d)(\d{2})$/, "$1,$2")
