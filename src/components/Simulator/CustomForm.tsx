@@ -66,7 +66,7 @@ const CustomForm: React.FC = (props) => {
     })
   }
   
-  const clean = () => {
+  const clear = () => {
     setFormData({
       ...formData,
       initial: "",
@@ -187,7 +187,7 @@ const CustomForm: React.FC = (props) => {
       <button 
         type="reset"
         className={styles.btn} 
-        onClick={clean}><b>Limpar campos</b></button>
+        onClick={clear}><b>Limpar campos</b></button>
 
       <button 
         type="submit" 

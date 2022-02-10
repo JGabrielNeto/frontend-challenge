@@ -3,11 +3,11 @@ import * as Highcharts from 'highcharts'
 const ReactHighcharts = require('react-highcharts')
 import { ValuesContext } from '../../hooks/ValuesContext'
 
-const Graph = (props: any) => {
+const ResultsChart: React.FC = (props: any) => {
 
     const { state } = React.useContext(ValuesContext);
-    const [comAporte, setComAporte] = React.useState([1]);
-    const [semAporte, setSemAporte] = React.useState([1]);
+    const [comAporte, setComAporte] = React.useState<number[]>([]);
+    const [semAporte, setSemAporte] = React.useState<number[]>([]);
 
     React.useEffect(() => {
         const comAporte: number[] = Object.values(state.results.graficoValores.comAporte);
@@ -87,4 +87,4 @@ const Graph = (props: any) => {
     )
 }
 
-export default Graph
+export default ResultsChart

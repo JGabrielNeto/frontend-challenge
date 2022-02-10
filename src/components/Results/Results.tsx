@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Card from "./Card"
 import styles from "../../styles/Results.module.sass"
-import Graph from "./Graph"
 import { useContext, useEffect, useState } from "react"
 import { ValuesContext } from "../../hooks/ValuesContext"
 import axios from "axios"
+import ResultsChart from "./ResultsChart"
 
 const Results: React.FC = () => {
     const { state, setState } = useContext(ValuesContext);
@@ -62,7 +62,7 @@ const Results: React.FC = () => {
                 <b>Ganho Líquido</b>
                 <p>{`R$ ${state.results.ganhoLiquido}`}</p>
             </Card>
-            <Graph/>
+            <ResultsChart/>
         </div>
     )
 }
