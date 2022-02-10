@@ -3,8 +3,8 @@ import CustomRadioIncome from "../src/components/Simulator/CustomRadioIncome"
 import CustomRadioIndexing from "../src/components/Simulator/CustomRadioIndexing"
 
 describe('Radioes', () => {
-    it('renders all the needed radios', () => {
-        render(
+    it('renders all the needed radios', async () => {
+        await render(
             <>
                 <CustomRadioIncome />
                 <CustomRadioIndexing />
