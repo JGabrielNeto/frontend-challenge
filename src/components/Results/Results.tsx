@@ -32,7 +32,7 @@ const Results: React.FC = () => {
     }, [state.request, state.madeNewRequest])
     
     if(!checkData) {
-        return ( <></>);
+        return ( <div></div>);
     }
 
     return (

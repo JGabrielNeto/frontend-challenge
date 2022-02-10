@@ -44,8 +44,8 @@ const CustomForm: React.FC = (props) => {
   }, [])
 
   useEffect(() => {
-    if  ( formData.initial !== "" &&
-          formData.monthly !== "" &&
+    if  ( formData.initial.replace(/\D/g, "") !== "" &&
+          formData.monthly.replace(/\D/g, "") !== "" &&
           formData.percent.replace(/\D/g, "") !== "" &&
           formData.month.replace(/\D/g, "") !== "") {
         setIsValid(true)
@@ -88,6 +88,7 @@ const CustomForm: React.FC = (props) => {
         request: isValid,
         madeNewRequest: true
       });
+      console.log("made new request =" + state.madeNewRequest + "\nrequest =" + state.request)
     }
 
   return (
