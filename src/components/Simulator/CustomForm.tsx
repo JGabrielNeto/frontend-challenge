@@ -46,8 +46,8 @@ const CustomForm: React.FC = (props) => {
   useEffect(() => {
     if  ( formData.initial !== "" &&
           formData.monthly !== "" &&
-          formData.percent !== "" &&
-          formData.month !== "") {
+          formData.percent.replace(/\D/g, "") !== "" &&
+          formData.month.replace(/\D/g, "") !== "") {
         setIsValid(true)
       } else {
         setIsValid(false)
